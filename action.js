@@ -1,9 +1,8 @@
-// currying
+// pure function and array mutate
 
-function multiply(a) {
-  return (b) => {
-    return a * b;
-  };
+let names = ['name1', 'name2', 'name3', 'name4'];
+
+function appendToArr(names, elem) {
+  return [...names, elem]; // do not mutate arrays and obj, use spread
 }
-
-console.log(multiply(2642)(2));
+console.log(names, appendToArr(names, 'name5'));
