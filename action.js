@@ -1,5 +1,7 @@
+// closures
+
 function counterFn() {
-  let count = 0;
+  let count = 0; // stays in closure scope
 
   return {
     increment10: () => (count = count + 10),
