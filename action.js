@@ -1,25 +1,24 @@
-// sort array of number
+// print range
 
-let arr = [1, 1, 1, 1, 111, 541, 4, 5, 587, 45];
+function range(start, end) {
+  return [...Array(end - start + 1).keys()].map((el) => el + start);
+}
 
-// console.log(
-//   [...arr].sort((perv, curr) => {
-//     return perv - curr;
-//   }),
-//   arr
-// );
+// console.log(range(399, 410));
 
-// sort array of obj by user
+// random shuffle array
+let arr = [365, 365, 76352, 543, 325465, 73624, 352];
+function shuffle(arr) {
+  let objs = arr
+    .map((elem) => ({ rand: Math.random(), value: elem }))
+    .sort((obj1, obj2) => obj1.rand - obj2.rand)
+    .map((a) => a.value);
+  return objs;
+}
 
-const user = [
-  { id: 234, user: '1name a', isActive: true, age: 200 },
-  { id: 246, user: '2name b', isActive: false, age: 0 },
-  { id: 34, user: '3name c', isActive: true, age: 50 },
-  { id: 34, user: '4name d', isActive: true, age: 50 },
-];
+// console.log(shuffle(arr));
 
-let sortedUser = [...user].sort((perv, curr) => {
-  return perv.user.split(' ')[1] > curr.user.split(' ')[1] ? -1 : 1;
-});
-
-console.log(user, sortedUser);
+// occurrence of min value
+const minVal = Math.min(...arr);
+const minArr = arr.filter((elem) => elem === minVal);
+console.log(minArr);
