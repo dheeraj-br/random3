@@ -1,23 +1,25 @@
-// check if array obj exists by key value
+// sort array of number
 
-let user = [
-  { id: 234, user: 'name1', isActive: true, age: 200 },
-  { id: 246, user: 'name2', isActive: false, age: 0 },
-  { id: 34, user: 'name3', isActive: true, age: 50 },
+let arr = [1, 1, 1, 1, 111, 541, 4, 5, 587, 45];
+
+// console.log(
+//   [...arr].sort((perv, curr) => {
+//     return perv - curr;
+//   }),
+//   arr
+// );
+
+// sort array of obj by user
+
+const user = [
+  { id: 234, user: '1name a', isActive: true, age: 200 },
+  { id: 246, user: '2name b', isActive: false, age: 0 },
+  { id: 34, user: '3name c', isActive: true, age: 50 },
+  { id: 34, user: '4name d', isActive: true, age: 50 },
 ];
 
-// console.log(!!user.find((obj) => obj.user === 'name1'));
+let sortedUser = [...user].sort((perv, curr) => {
+  return perv.user.split(' ')[1] > curr.user.split(' ')[1] ? -1 : 1;
+});
 
-// remove duplicates
-let arr = [1, 2, 3, 4, 5, 5, 5, 5, 1, 1, 1];
-
-let uniqueElem = [...new Set(arr)];
-// console.log(uniqueElem);
-
-uniqueElem = arr.reduce((aggregator, elem) => {
-  console.log(aggregator, elem);
-  return aggregator.includes(elem) ? aggregator : [...aggregator, elem]; // better than push because push returns index
-  //return value becomes value for aggregator for next iter
-}, []); // initializer for aggregator, if absent takes first elem of array
-
-console.log(uniqueElem);
+console.log(user, sortedUser);
